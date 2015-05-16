@@ -41,7 +41,7 @@ module.exports = function(grunt) {
             target = this.target,
             options = this.options(defaults),
             execute = path.normalize(options.bin),
-            files = [].concat.apply([], this.files.map(function(mapping) { return mapping.src; })).sort();
+            files = this.filesSrc.sort();
         
         // removes duplicate files
         files = files.filter(function(file, position) { 
