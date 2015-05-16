@@ -68,9 +68,9 @@ module.exports = function(grunt) {
             /* jshint -W030 */
             typeof options.callback === 'function' && options.callback.call(this, error, stdout, stderr, done);
             stdout && grunt.log.write(stdout);
-            error && grunt.fail.warn(stderr ? stderr : 'Task phpcs:' + target + ' failed.');
+            error && !options.ignoreExitCode && grunt.fail.warn(stderr ? stderr : 'Task phpcs:' + target + ' failed.');
             !error && grunt.log.ok(files.length + ' file' + (files.length === 1 ? '' : 's') + ' lint free.');
-            done(error);
+            options.ignoreExitCode ? done() : done(error);
         });
     });
 };
