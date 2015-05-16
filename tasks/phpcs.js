@@ -47,7 +47,10 @@ module.exports = function(grunt) {
         files = files.filter(function(file, position) { 
             return !position || file !== files[position - 1];
         });
-        
+
+        // If --report-file is false PHPCS does not output anything.
+        if (!options.reportFile) delete options.reportFile;
+
         // generates parameters
         parameters = Object.keys(options).map(function(option) {
             return option in command.flags && options[option] === true ? 
