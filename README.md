@@ -108,6 +108,9 @@ Type: `String` Default: `false`
 
 Log report to the file.
 
+####ignoreExitCode
+Type: `Boolean` Default: `false`
+
 ####tabWidth
 Type: `Integer` Default: `false`
 
